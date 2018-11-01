@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RestApiProvider } from '../../providers/rest-api/rest-api';
 
 /**
  * Generated class for the NoticiasCategoriasPage page.
@@ -15,11 +16,39 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class NoticiasCategoriasPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  idCategoria;
+  noticias: any;
+  fotosNoticias: any;
+  idNoticia;
+  idNoticiaFoto;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public restApi: RestApiProvider) {
+    this.idCategoria = navParams.get("id");
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad NoticiasCategoriasPage');
+    //console.log('ionViewDidLoad NoticiasCategoriasPage');
+    this.cargarNoticias();
+    this.cargarFotos();
+  }
+
+  cargarNoticias(){
+    this.restApi.getNoticias(this.idCategoria).then((data) =>{
+      this.noticias = data;
+
+      let obj = JSON.parse(JSON.stringify(data));
+      this.idNoticia = obj[0];
+    });
+  }
+  
+  cargarFotos(){
+    this.restApi.getFotos().then((data) => {
+      this.fotosNoticias = data;
+
+      let obj = JSON.parse(JSON.stringify(data));
+      this.idNoticiaFoto = obj[0];
+    });
   }
 
 }
