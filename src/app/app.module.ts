@@ -9,22 +9,33 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RestApiProvider } from '../providers/rest-api/rest-api';
+import { HttpClientModule } from '@angular/common/http';
+import { NoticiasCategoriasPage } from '../pages/noticias-categorias/noticias-categorias';
+import { CategoriasPage } from '../pages/categorias/categorias';
+import { NoticiaPage } from '../pages/noticia/noticia';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    NoticiasCategoriasPage,
+    CategoriasPage,
+    NoticiaPage
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    NoticiasCategoriasPage,
+    CategoriasPage,
+    NoticiaPage
   ],
   providers: [
     StatusBar,
