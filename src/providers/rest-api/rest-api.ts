@@ -26,6 +26,17 @@ export class RestApiProvider {
     });
   }
 
+  getTodasLaNoticiasImagenes(){
+    return new Promise(resolve => {
+      this.http.get(this.baseURL + 'media').subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+        
+      });
+    });
+  }
+
   getCategorias(){
     return new Promise(resolve => {
       this.http.get(this.baseURL + 'categories').subscribe(data => {
@@ -49,7 +60,17 @@ export class RestApiProvider {
   getNoticiaId(idNoticia){
     return new Promise(resolve => {
       this.http.get(this.baseURL + 'posts/'+ idNoticia).subscribe(data => {
-        resolve(data);
+        resolve([data]);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
+  getNoticiaIdFoto(idFoto){
+    return new Promise(resolve => {
+      this.http.get(this.baseURL + 'media/'+ idFoto).subscribe(data => {
+        resolve([data]);
       }, err => {
         console.log(err);
       });
