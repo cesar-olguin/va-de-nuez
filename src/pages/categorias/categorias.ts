@@ -29,7 +29,6 @@ export class CategoriasPage {
     this.navCtrl.push(NoticiasCategoriasPage,{
       id: cate.id
     });
-    
   }
 
 }

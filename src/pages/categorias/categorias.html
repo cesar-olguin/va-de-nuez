@@ -18,11 +18,12 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let cate of categorias" (click)="categoriaSeleccionada(cate)">
-      <h2>{{ cate.description | uppercase }}</h2>
-      <p>{{ cate.slug }}</p>
-      <p>{{ cate.link }}</p>
-      <p>{{ cate.id }}</p>
-    </ion-item>
+    <button ion-item no-lines icon-start *ngFor="let cate of categorias" (click)="categoriaSeleccionada(cate)">
+      <ion-icon name="book" item-start></ion-icon>
+      <h1>{{ cate.slug | uppercase }}</h1>
+      <!-- <p>{{ cate.description }}</p>
+        <p>{{ cate.link }}</p>
+        <p>{{ cate.id }}</p> -->
+    </button>
   </ion-list>
 </ion-content>
