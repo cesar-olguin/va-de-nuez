@@ -18,7 +18,7 @@ export class RestApiProvider {
 
   getTodasLasNoticias(){
     return new Promise(resolve => {
-      this.http.get(this.baseURL + 'posts').subscribe(data => {
+      this.http.get(this.baseURL + 'posts/?per_page=100').subscribe(data => {
         resolve(data);
       }, err =>{
         console.log(err);
@@ -28,7 +28,7 @@ export class RestApiProvider {
 
   getTodasLaNoticiasImagenes(){
     return new Promise(resolve => {
-      this.http.get(this.baseURL + 'media').subscribe(data => {
+      this.http.get(this.baseURL + 'media/?per_page=100').subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -39,7 +39,7 @@ export class RestApiProvider {
 
   getCategorias(){
     return new Promise(resolve => {
-      this.http.get(this.baseURL + 'categories').subscribe(data => {
+      this.http.get(this.baseURL + 'categories/?per_page=100').subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -49,7 +49,7 @@ export class RestApiProvider {
 
   getNoticias(idCategoria){
     return new Promise(resolve => {
-      this.http.get(this.baseURL + 'posts?categories='+ idCategoria).subscribe(data => {
+      this.http.get(this.baseURL + 'posts/?per_page=100&categories='+ idCategoria).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -79,7 +79,7 @@ export class RestApiProvider {
 
   getFotos(){
     return new Promise(resolve => {
-      this.http.get(this.baseURL + 'media').subscribe(data => {
+      this.http.get(this.baseURL + 'media/?per_page=100').subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
