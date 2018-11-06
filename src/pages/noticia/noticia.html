@@ -34,7 +34,24 @@
       </ion-col>
     </ion-row>
     <p [innerHTML]="nota.content.rendered"></p>
-
+    <br>
+    <p>Noticias Relacionadas</p>
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let relacionado of nota.jetpack-related-posts" no-padding>
+          <ion-card>
+            <ion-card-content>
+              <ion-card-title [innerHTML]="relacionado.title | uppercase"></ion-card-title>
+              <p [innerHTML]="relacionado.date  "></p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
   </div>
+
+  
+
 </ion-content>

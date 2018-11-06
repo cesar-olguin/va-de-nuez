@@ -21,6 +21,8 @@ export class NoticiaPage {
   idImagenNoticia: any;
   imagenNoticia;
   imagen;
+  noticiasRelacionadas: any;
+  parseNoticia;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public restApi: RestApiProvider) {
     this.idNoticia = navParams.get("id");
@@ -31,7 +33,9 @@ export class NoticiaPage {
     this.restApi.getNoticiaId(this.idNoticia).then((data) => {
       this.noticia = data;
       let obj = JSON.parse(JSON.stringify(data));
-      
+
+      this.parseNoticia = obj[0];
+
       for (var i = 0; i < obj.length; i++) {
         this.idImagenNoticia = obj[i];
     
