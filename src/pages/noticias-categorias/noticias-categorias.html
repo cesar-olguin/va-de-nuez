@@ -18,20 +18,29 @@
 
 <ion-content padding>
 
-  <ion-list [virtualScroll]="noticias">
+  <ion-list [virtualScroll]="noticias" approxItemHeight="100px" approxHeaderHeight="80px">
+    <ion-item *virtualItem="let nota" (click)="noticiaSeleccionada(nota)">
+      <ion-avatar item-left>
+        <ion-img [src]="nota.jetpack_featured_media_url"></ion-img>
+      </ion-avatar>
+      <p [innerHTML]="nota.title.rendered | uppercase"></p>
+    </ion-item>
+  </ion-list>
+
+  <!-- <ion-list [virtualScroll]="noticias">
     <ion-card *virtualItem="let nota" (click)="noticiaSeleccionada(nota)">
       <ion-card-header no-padding>
-        <!-- <img [src]="imagenNoticia"> -->
+        <img [src]="imagenNoticia">
       </ion-card-header>
       <ion-card-content>
         <ion-grid>
           <ion-row>
             <ion-col col-6>
-              <!-- <button ion-button icon-start>
-                  <ion-icon name="calendar"></ion-icon>
-                  <ion-datetime icon-start displayFormat="MMMM DD, YYYY" [(ngModel)]="todas.date" disabled>
-                  </ion-datetime>
-                </button> -->
+              <button ion-button icon-start>
+                <ion-icon name="calendar"></ion-icon>
+                <ion-datetime icon-start displayFormat="MMMM DD, YYYY" [(ngModel)]="todas.date" disabled>
+                </ion-datetime>
+              </button>
             </ion-col>
             <ion-col col-6>
             </ion-col>
@@ -41,6 +50,6 @@
         </ion-grid>
       </ion-card-content>
     </ion-card>
-  </ion-list>
+  </ion-list> -->
 
 </ion-content>
