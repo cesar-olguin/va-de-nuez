@@ -19,7 +19,7 @@
 <ion-content padding>
   <div *ngFor="let nota of noticia" no-padding>
     <h1 [innerHTML]="nota.title.rendered | uppercase"></h1>
-    <img [src]="imagen">
+    <img [src]="imagen" imageViewer >
     <ion-row>
       <ion-col>
         <button ion-button icon-start>
@@ -35,7 +35,7 @@
     </ion-row>
     <p [innerHTML]="nota.content.rendered"></p>
     <br>
-    <p>Noticias Relacionadas</p>
+    <!-- <p>Noticias Relacionadas</p> -->
     
     <ion-grid>
       <ion-row>
