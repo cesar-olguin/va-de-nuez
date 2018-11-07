@@ -16,9 +16,9 @@ export class RestApiProvider {
 
   baseURL="http://vadenuez.info/wp/wp-json/wp/v2/";
 
-  getTodasLasNoticias(){
+  getTodasLasNoticias(pagina){
     return new Promise(resolve => {
-      this.http.get(this.baseURL + 'posts/?per_page=100').subscribe(data => {
+      this.http.get(this.baseURL + 'posts/?per_page=15&page=' + pagina).subscribe(data => {
         resolve(data);
       }, err =>{
         console.log(err);
@@ -47,9 +47,9 @@ export class RestApiProvider {
     });
   }
 
-  getNoticias(idCategoria){
+  getNoticias(idCategoria,pagina){
     return new Promise(resolve => {
-      this.http.get(this.baseURL + 'posts/?per_page=100&categories='+ idCategoria).subscribe(data => {
+      this.http.get(this.baseURL + 'posts/?per_page=15&categories=' + idCategoria + '&page=' + pagina).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
