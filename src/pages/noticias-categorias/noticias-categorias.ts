@@ -23,6 +23,9 @@ export class NoticiasCategoriasPage {
   imagenNoticia;
   imagen;
 
+  pagina = 1;
+  paginasMaximas = 500;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -35,10 +38,23 @@ export class NoticiasCategoriasPage {
     this.cargarNoticias();
   }
 
-  cargarNoticias() {
-    this.restApi.getNoticias(this.idCategoria).then(data => {
+  cargarNoticias(infiniteScroll?) {
+    this.restApi.getNoticias(this.idCategoria,this.pagina).then(data => {
       this.noticias = data;
+      if (infiniteScroll) {
+        this.noticias = this.noticias.concat(data);
+        infiniteScroll.complete();
+      }
     });
+  }
+  
+  cargarMasNoticias(infiniteScroll) {
+    this.pagina++;
+    this.cargarNoticias(infiniteScroll);
+    //this.content.scrollToTop();
+    if (this.pagina === this.paginasMaximas) {
+      infiniteScroll.enable(false);
+    }
   }
 
   noticiaSeleccionada(noticia) {
