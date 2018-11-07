@@ -9,19 +9,23 @@
 <!-- style=" background: linear-gradient(#6f212f, #ffb915);" -->
 <ion-content padding>
 
-  <!-- <ion-infinite-scroll (ionInfinite)="recargarPagina()">
-    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Recargar Noticias...">
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll> -->
-
   <ion-list [virtualScroll]="todasLasNoticias" approxItemHeight="100px" approxHeaderHeight="80px">
     <ion-item *virtualItem="let todas" (click)="noticiaSeleccionada(todas)">
       <ion-avatar item-left>
-          <ion-img [src]="todas.jetpack_featured_media_url"></ion-img>
+        <ion-img [src]="todas.jetpack_featured_media_url"></ion-img>
       </ion-avatar>
-     <p [innerHTML]="todas.title.rendered | uppercase"></p>
+      <p [innerHTML]="todas.title.rendered | uppercase"></p>
     </ion-item>
   </ion-list>
+
+  <!-- <ion-list >
+    <ion-item *ngFor="let todas of todasLasNoticias"(click)="noticiaSeleccionada(todas)">
+      <ion-avatar item-left>
+        <ion-img [src]="todas.jetpack_featured_media_url"></ion-img>
+      </ion-avatar>
+      <p [innerHTML]="todas.title.rendered | uppercase"></p>
+    </ion-item>
+  </ion-list> -->
 
   <!-- <ion-list [virtualScroll]="todasLasNoticias" [virtualScroll]="todasLasImagenes">
     <ion-card *virtualItem="let todas" (click)="noticiaSeleccionada(todas)">
@@ -65,9 +69,9 @@
     </ion-row>
   </ion-grid> -->
 
-  <!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+  <ion-infinite-scroll (ionInfinite)="cargarMasNoticias($event)">
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Cargando Mas Noticias...">
     </ion-infinite-scroll-content>
-  </ion-infinite-scroll> -->
+  </ion-infinite-scroll>
   <!-- <button ion-button secondary menuToggle>Toggle Menu</button> -->
 </ion-content>
