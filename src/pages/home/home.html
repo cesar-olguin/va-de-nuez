@@ -9,14 +9,14 @@
 <!-- style=" background: linear-gradient(#6f212f, #ffb915);" -->
 <ion-content padding>
 
-  <ion-list [virtualScroll]="todasLasNoticias" approxItemHeight="100px" approxHeaderHeight="80px">
+  <!-- <ion-list [virtualScroll]="todasLasNoticias" approxItemHeight="100px" approxHeaderHeight="80px">
     <ion-item *virtualItem="let todas" (click)="noticiaSeleccionada(todas)">
       <ion-avatar item-left>
         <ion-img [src]="todas.jetpack_featured_media_url"></ion-img>
       </ion-avatar>
       <h2 [innerHTML]="todas.title.rendered | uppercase"></h2>
     </ion-item>
-  </ion-list>
+  </ion-list> -->
 
   <!-- <ion-list >
     <ion-item *ngFor="let todas of todasLasNoticias"(click)="noticiaSeleccionada(todas)">
@@ -27,18 +27,33 @@
     </ion-item>
   </ion-list> -->
 
-  <!-- <ion-list [virtualScroll]="todasLasNoticias" [virtualScroll]="todasLasImagenes">
+  <ion-list [virtualScroll]="todasLasNoticias">
     <ion-card *virtualItem="let todas" (click)="noticiaSeleccionada(todas)">
-      <ion-card-header no-padding>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <img [src]="todas.jetpack_featured_media_url">
+          </ion-col>
+          <ion-col>
+            <h2 [innerHTML]="todas.title.rendered | uppercase"></h2>
+            <button ion-button icon-start small>
+              <ion-icon name="calendar"></ion-icon>
+              <ion-datetime style="color: #fff;" icon-start displayFormat="MMMM DD, YYYY" [(ngModel)]="todas.date" disabled>
+              </ion-datetime>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!-- <ion-card-header no-padding>
         <ion-avatar item-left>
-            <ion-img [src]="todas.jetpack_featured_media_url" width="25%" height="25%"></ion-img>
+            <ion-img [src]="todas.jetpack_featured_media_url"></ion-img>
         </ion-avatar>
       </ion-card-header>
       <ion-card-content>
-        <ion-card-title [innerHTML]="todas.title.rendered | uppercase"></ion-card-title>
-      </ion-card-content>
+       
+      </ion-card-content> -->
     </ion-card>
-  </ion-list> -->
+  </ion-list>
 
   <!-- <ion-grid>
     <ion-row>

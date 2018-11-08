@@ -22,11 +22,11 @@
     <h1 align="justify" [innerHTML]="nota.title.rendered | uppercase"></h1>
     <ion-row>
       <ion-col>
-        <button ion-button icon-start>
+        <button ion-button icon-start small>
           <ion-icon name="person"></ion-icon>
           {{autor}}
         </button>
-        <button ion-button icon-start>
+        <button ion-button icon-start small>
           <ion-icon name="calendar"></ion-icon>
           <ion-datetime icon-start displayFormat="MMMM DD, YYYY" [(ngModel)]="nota.date" disabled>
           </ion-datetime>
