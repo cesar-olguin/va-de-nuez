@@ -18,7 +18,7 @@ export class RestApiProvider {
 
   getTodasLasNoticias(pagina){
     return new Promise(resolve => {
-      this.http.get(this.baseURL + 'posts/?per_page=15&page=' + pagina).subscribe(data => {
+      this.http.get(this.baseURL + 'posts/?per_page=10&page=' + pagina).subscribe(data => {
         resolve(data);
       }, err =>{
         console.log(err);
@@ -49,7 +49,7 @@ export class RestApiProvider {
 
   getNoticias(idCategoria,pagina){
     return new Promise(resolve => {
-      this.http.get(this.baseURL + 'posts/?per_page=15&categories=' + idCategoria + '&page=' + pagina).subscribe(data => {
+      this.http.get(this.baseURL + 'posts/?per_page=10&categories=' + idCategoria + '&page=' + pagina).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -87,7 +87,14 @@ export class RestApiProvider {
     });
   }
 
-  getUsuarios(){
-    return this.http.get('https://randomuser.me/api/?results=100');
+  getUsuario(idUsuario){
+    return new Promise(resolve => {
+      this.http.get(this.baseURL + 'users/' + idUsuario).subscribe(data => {
+        resolve([data]);
+      }, err => {
+        console.log(err);
+      });
+    });
   }
+
 }
