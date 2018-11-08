@@ -1,30 +1,30 @@
 <ion-menu [content]="content">
   <ion-header>
-    <ion-toolbar>
+    <ion-toolbar color="vadenuez-rojo">
       <ion-title>VaDeNuez</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
+  <ion-content style="background: #222;">
     <!-- <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>detail-none
     </ion-list> -->
     <ion-list>
-      <button ion-item icon-start menuClose *ngFor="let p of pages" (click)="openPage(p)">
+      <button color="dark" ion-item icon-start menuClose *ngFor="let p of pages" (click)="openPage(p)">
         <ion-icon item-start [name]="p.icon"></ion-icon>
         {{p.title}}
       </button>
-      <button ion-item no-lines icon-start menuClose *ngFor="let cate of categorias" (click)="categoriaSeleccionada(cate)">
+      <button color="gray" ion-item no-lines icon-start menuClose *ngFor="let cate of categorias" (click)="categoriaSeleccionada(cate)">
         <ion-icon name="book" item-start></ion-icon>
         {{ cate.slug | uppercase }}
         <!-- <p>{{ cate.description }}</p>
           <p>{{ cate.link }}</p>
           <p>{{ cate.id }}</p> -->
       </button>
+      <img class="center" src="../assets/icon/icon.png">
     </ion-list>
-    <img class="center" src="../assets/icon/icon.png">
   </ion-content>
 
 </ion-menu>

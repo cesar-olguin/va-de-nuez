@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NoticiasCategoriasPage } from '../pages/noticias-categorias/noticias-categorias';
 import { CategoriasPage } from '../pages/categorias/categorias';
 import { NoticiaPage } from '../pages/noticia/noticia';
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { NoticiaPage } from '../pages/noticia/noticia';
       dayNames: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
       dayShortNames: ['dom', 'lun', 'mar', 'mie', 'jue', 'vie', 'sab'],
     }),
+    IonicImageViewerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
