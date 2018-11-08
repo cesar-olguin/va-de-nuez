@@ -45,6 +45,7 @@ export class MyApp {
       this.statusBar.overlaysWebView(false);
 
       this.statusBar.styleLightContent();
+      this.statusBar.backgroundColorByHexString('#d68300');
       this.statusBar.styleBlackTranslucent();
       this.splashScreen.hide();
     });
