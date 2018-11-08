@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { RestApiProvider } from '../../providers/rest-api/rest-api';
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { RestApiProvider } from "../../providers/rest-api/rest-api";
 
 /**
  * Generated class for the NoticiaPage page.
@@ -11,11 +11,10 @@ import { RestApiProvider } from '../../providers/rest-api/rest-api';
 
 @IonicPage()
 @Component({
-  selector: 'page-noticia',
-  templateUrl: 'noticia.html',
+  selector: "page-noticia",
+  templateUrl: "noticia.html"
 })
 export class NoticiaPage {
-
   idNoticia;
   noticia: any;
   idImagenNoticia: any;
@@ -26,27 +25,26 @@ export class NoticiaPage {
   autor;
   parseUsuario;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public restApi: RestApiProvider) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public restApi: RestApiProvider
+  ) {
     this.idNoticia = navParams.get("id");
     this.cargarNoticia();
   }
 
-  cargarNoticia(){
-    this.restApi.getNoticiaId(this.idNoticia).then((data) => {
+  cargarNoticia() {
+    this.restApi.getNoticiaId(this.idNoticia).then(data => {
       this.noticia = data;
-      let obj = JSON.parse(JSON.stringify(data));
+      let objNoticia = JSON.parse(JSON.stringify(data));
+      this.parseNoticia = objNoticia[0];
 
-      this.parseNoticia = obj[0];
-
-      this.restApi.getUsuario(this.parseNoticia.author).then((data) => {
-        console.log(data);
-        
-        let obj = JSON.parse(JSON.stringify(data));
-        this.parseUsuario = obj[0];
-
+      this.restApi.getUsuario(this.parseNoticia.author).then(data => {
+        let objUsuario = JSON.parse(JSON.stringify(data));
+        this.parseUsuario = objUsuario[0];
         this.autor = this.parseUsuario.name;
       });
-    
     });
   }
 }
