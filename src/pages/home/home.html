@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="vadenuez-amarillo">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -14,7 +14,7 @@
       <ion-avatar item-left>
         <ion-img [src]="todas.jetpack_featured_media_url"></ion-img>
       </ion-avatar>
-      <p [innerHTML]="todas.title.rendered | uppercase"></p>
+      <h2 [innerHTML]="todas.title.rendered | uppercase"></h2>
     </ion-item>
   </ion-list>
 

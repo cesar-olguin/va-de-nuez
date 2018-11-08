@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="vadenuez-amarillo">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -18,13 +18,13 @@
 
 <ion-content padding>
   <div *ngFor="let nota of noticia" no-padding>
-    <h1 [innerHTML]="nota.title.rendered | uppercase"></h1>
-    <img [src]="imagen" imageViewer >
+    <img [src]="nota.jetpack_featured_media_url" imageViewer >
+    <h1 align="justify" [innerHTML]="nota.title.rendered | uppercase"></h1>
     <ion-row>
       <ion-col>
         <button ion-button icon-start>
           <ion-icon name="person"></ion-icon>
-          {{nota.author}}
+          {{autor}}
         </button>
         <button ion-button icon-start>
           <ion-icon name="calendar"></ion-icon>
@@ -33,7 +33,7 @@
         </button>
       </ion-col>
     </ion-row>
-    <p [innerHTML]="nota.content.rendered"></p>
+    <p align="justify" [innerHTML]="nota.content.rendered"></p>
     <br>
     <!-- <p>Noticias Relacionadas</p> -->
     

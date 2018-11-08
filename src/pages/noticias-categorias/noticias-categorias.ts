@@ -18,6 +18,7 @@ import { NoticiaPage } from "../noticia/noticia";
 export class NoticiasCategoriasPage {
   idCategoria;
   noticias: any;
+  noticiasPagina;
   fotosNoticias: any;
   idImagenNoticia;
   imagenNoticia;
@@ -50,7 +51,14 @@ export class NoticiasCategoriasPage {
   
   cargarMasNoticias(infiniteScroll) {
     this.pagina++;
-    this.cargarNoticias(infiniteScroll);
+    //this.cargarNoticias(infiniteScroll);
+    this.restApi.getNoticias(this.idCategoria,this.pagina).then(data => {
+      this.noticiasPagina = data;
+      if (infiniteScroll) {
+        this.noticias = this.noticias.concat(this.noticiasPagina);
+        infiniteScroll.complete();
+      }
+    });
     //this.content.scrollToTop();
     if (this.pagina === this.paginasMaximas) {
       infiniteScroll.enable(false);

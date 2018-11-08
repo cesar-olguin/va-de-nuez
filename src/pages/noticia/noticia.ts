@@ -23,6 +23,8 @@ export class NoticiaPage {
   imagen;
   noticiasRelacionadas: any;
   parseNoticia;
+  autor;
+  parseUsuario;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public restApi: RestApiProvider) {
     this.idNoticia = navParams.get("id");
@@ -36,17 +38,15 @@ export class NoticiaPage {
 
       this.parseNoticia = obj[0];
 
-      for (var i = 0; i < obj.length; i++) {
-        this.idImagenNoticia = obj[i];
-    
-        this.restApi.getNoticiaIdFoto(this.idImagenNoticia.featured_media).then((data) => {
-          let obj = JSON.parse(JSON.stringify(data));
-          this.imagenNoticia = obj[0];
+      this.restApi.getUsuario(this.parseNoticia.author).then((data) => {
+        console.log(data);
+        
+        let obj = JSON.parse(JSON.stringify(data));
+        this.parseUsuario = obj[0];
 
-          this.imagen = this.imagenNoticia.guid.rendered;
-         
-        });
-      }
+        this.autor = this.parseUsuario.name;
+      });
+    
     });
   }
 }
