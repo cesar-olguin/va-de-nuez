@@ -18,33 +18,34 @@ export class MyApp {
 
   rootPage: any = HomePage;
 
-
-  pages: Array<{ title: string, component: any, icon: string }>;
+  pages: Array<{ title: string; component: any; icon: string }>;
   categorias: any;
 
   constructor(
     public platform: Platform,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    public restApi: RestApiProvider,
+    public restApi: RestApiProvider
   ) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'INICIO', component: HomePage, icon: 'home' },
+      { title: "INICIO", component: HomePage, icon: "home" }
       //{ title: 'List', component: ListPage },
       //{ title: "Categorias", component: CategoriasPage }
     ];
-
-   
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
+      // let status bar overlay webview
+      this.statusBar.overlaysWebView(false);
+
+      this.statusBar.styleLightContent();
+      this.statusBar.styleBlackTranslucent();
       this.splashScreen.hide();
     });
 
@@ -53,8 +54,8 @@ export class MyApp {
     });
   }
 
-  categoriaSeleccionada(cate){
-    this.nav.setRoot(NoticiasCategoriasPage,{
+  categoriaSeleccionada(cate) {
+    this.nav.setRoot(NoticiasCategoriasPage, {
       id: cate.id
     });
   }
