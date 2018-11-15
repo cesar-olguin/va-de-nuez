@@ -14,6 +14,7 @@ import { NoticiasCategoriasPage } from '../pages/noticias-categorias/noticias-ca
 import { CategoriasPage } from '../pages/categorias/categorias';
 import { NoticiaPage } from '../pages/noticia/noticia';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
+import { IonicSwipeAllModule } from 'ionic-swipe-all';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
       dayNames: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
       dayShortNames: ['dom', 'lun', 'mar', 'mie', 'jue', 'vie', 'sab'],
     }),
-    IonicImageViewerModule
+    IonicImageViewerModule,
+    IonicSwipeAllModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

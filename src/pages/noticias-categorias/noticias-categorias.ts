@@ -32,6 +32,8 @@ export class NoticiasCategoriasPage {
     public navParams: NavParams,
     public restApi: RestApiProvider
   ) {
+    this.noticiasPagina = null;
+    this.fotosNoticias = null;
     this.idCategoria = navParams.get("id");
   }
 

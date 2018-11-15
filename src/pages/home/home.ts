@@ -2,7 +2,6 @@ import { Component, ViewChild } from "@angular/core";
 import { NavController, Content } from "ionic-angular";
 import { RestApiProvider } from "../../providers/rest-api/rest-api";
 import { NoticiaPage } from "../noticia/noticia";
-//import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: "page-home",
@@ -18,9 +17,13 @@ export class HomePage {
 
   constructor(
     public navCtrl: NavController,
-    public restApi: RestApiProvider
-  ) //private httpClient: HttpClient
-  {
+    public restApi: RestApiProvider //private httpClient: HttpClient
+  ) {
+    this.todasLasNoticias = null;
+    this.noticiasPagina = null;
+  }
+
+  ionViewDidLoad() {
     this.cargarNoticias();
   }
 
@@ -60,5 +63,12 @@ export class HomePage {
 
   recargarPagina() {
     window.location.reload(true);
+  }
+
+  recargarNoticias(event) {
+    console.log(event);
+    this.todasLasNoticias = null;
+    this.noticiasPagina = null;
+    this.cargarNoticias();
   }
 }

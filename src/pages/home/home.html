@@ -8,7 +8,7 @@
 </ion-header>
 <!-- style=" background: linear-gradient(#6f212f, #ffb915);" -->
 <ion-content padding>
-
+  <!-- (swipe)="recargarNoticias($event)" -->
   <!-- <ion-list [virtualScroll]="todasLasNoticias" approxItemHeight="100px" approxHeaderHeight="80px">
     <ion-item *virtualItem="let todas" (click)="noticiaSeleccionada(todas)">
       <ion-avatar item-left>
@@ -27,7 +27,7 @@
     </ion-item>
   </ion-list> -->
 
-  <ion-list [virtualScroll]="todasLasNoticias">
+  <ion-list [virtualScroll]="todasLasNoticias" >
     <ion-card *virtualItem="let todas" (click)="noticiaSeleccionada(todas)">
       <ion-grid>
         <ion-row>
